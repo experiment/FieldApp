@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController,UINavigationControllerDelegate {
 
     @IBOutlet weak var webView: UIWebView!
     

@@ -16,10 +16,21 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        activityIndicator.stopAnimating()
+        
+//        imageView.hidden = true
+//        takePhotoButton.hidden = false
+//        titleField.hidden = true
+//        saveButton.hidden = true
+//        cancelButton.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +56,8 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         println("save")
         println(titleField.text)
         
+        activityIndicator.startAnimating()
+        
         let imageData = UIImageJPEGRepresentation(imageView.image, 1)
         var parameters = [
             "method": "POST",
@@ -54,6 +67,10 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         let urlRequest = urlRequestWithComponents("http://localhost:3000/field/upload", parameters: parameters, imageData: imageData)
         
         Alamofire.upload(urlRequest.0, urlRequest.1)
+            .responseString { (_, _, string, _) in
+               self.showFeed()
+            }
+
     }
     
     // Stolen from the internet
@@ -92,6 +109,11 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         titleField.hidden = false
         saveButton.hidden = false
         cancelButton.hidden = false
+    }
+    
+    func showFeed() {
+        let feed = self.storyboard?.instantiateViewControllerWithIdentifier("FeedView") as! FirstViewController
+        self.presentViewController(feed, animated: false, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
