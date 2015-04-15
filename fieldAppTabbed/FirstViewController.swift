@@ -14,10 +14,12 @@ class FirstViewController: UIViewController,UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                println("viewDidLoad")
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool) {
+        println("viewWillAppear")
         webView.loadRequest(NSURLRequest(URL: NSURL(string: "http://localhost:3000/field/feed")!))
     }
 

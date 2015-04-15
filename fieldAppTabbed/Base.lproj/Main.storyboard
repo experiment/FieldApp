@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Feed-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController storyboardIdentifier="FeedView" extendedLayoutIncludesOpaqueBars="YES" id="9pv-A4-QxB" customClass="FirstViewController" customModule="fieldAppTabbed" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zds-mV-8p2">
+                            <webView contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zds-mV-8p2">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -26,16 +26,40 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="feed" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="webView" destination="Zds-mV-8p2" id="Qdz-xb-YSd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.25" y="-320.5"/>
+            <point key="canvasLocation" x="595.5" y="-349.5"/>
         </scene>
-        <!--Second-->
+        <!--View Controller-->
+        <scene sceneID="yvF-Wg-Gff">
+            <objects>
+                <viewController id="iOs-rM-43F" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vZJ-bD-Zde"/>
+                        <viewControllerLayoutGuide type="bottom" id="YDx-7H-lQo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wPo-vM-RzP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login" translatesAutoresizingMaskIntoConstraints="NO" id="Gn0-KV-1Wr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PEH-RC-SDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="81" y="746"/>
+        </scene>
+        <!--Create-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController extendedLayoutIncludesOpaqueBars="YES" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="fieldAppTabbed" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,8 +71,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="cameraBg" translatesAutoresizingMaskIntoConstraints="NO" id="D6g-8P-S4i">
+                                <rect key="frame" x="0.0" y="-49" width="375" height="667"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8a-sM-szO">
-                                <rect key="frame" x="10" y="11" width="357" height="362"/>
+                                <rect key="frame" x="10" y="55" width="357" height="362"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="30" width="375" height="375"/>
                                 </variation>
@@ -84,8 +111,9 @@
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPr-VM-GXY">
-                                <rect key="frame" x="34" y="507" width="77" height="30"/>
+                                <rect key="frame" x="5" y="588" width="77" height="30"/>
                                 <state key="normal" title="Take Photo">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -96,13 +124,14 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lbO-sA-rbU">
-                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <rect key="frame" x="171" y="199" width="20" height="20"/>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="169" y="199" width="37" height="37"/>
                                 </variation>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="lbO-sA-rbU"/>
@@ -114,9 +143,10 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Create" image="camera" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="activityIndicator" destination="lbO-sA-rbU" id="3sk-wX-zSU"/>
+                        <outlet property="bg" destination="D6g-8P-S4i" id="Ob7-Gb-8gT"/>
                         <outlet property="cancelButton" destination="COH-Ck-a9E" id="hzV-4p-wrd"/>
                         <outlet property="imageView" destination="d8a-sM-szO" id="R4f-K2-tJc"/>
                         <outlet property="saveButton" destination="Qj8-RZ-vhL" id="kwW-ZB-lLs"/>
@@ -126,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="715.5" y="360.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -147,11 +177,13 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="25.5" y="-56.5"/>
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="camera" width="25" height="19"/>
+        <image name="cameraBg" width="375" height="667"/>
+        <image name="feed" width="23" height="23"/>
+        <image name="login" width="500" height="889"/>
     </resources>
 </document>

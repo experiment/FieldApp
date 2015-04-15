@@ -11,13 +11,14 @@ import Alamofire
 
 class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
+    @IBOutlet weak var bg: UIImageView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -104,6 +105,7 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     }
     
     func showImage() {
+        bg.hidden = true
         imageView.hidden = false
         takePhotoButton.hidden = true
         titleField.hidden = false
